@@ -1,0 +1,59 @@
+#define size 5
+#include<stdio.h>
+#include<stdlib.h>
+
+int top = -1;
+void push(int[], int);
+	int peek(int[]);
+	int pop(int[]);
+	
+int main()
+{
+	int a[size],n,i,x,y;
+	printf("\n How many elements to push?");
+	scanf("%d", &n);
+	
+	
+	
+	for(i=0; i<n; i++)
+	{
+		printf("\n Enter the elements to push :");
+		scanf("%d", &x);
+		push(a,x);
+	}
+	y=peek(a);
+	printf("%d",y);
+	
+	for(i=0; i<n; i++) {
+	x=pop(a);
+	printf("%d" ,x);
+}
+}
+void push(int a[], int x)
+{
+++top;
+if(top == size)
+{
+	printf("\n Stack Full");
+	exit (1);
+}
+a[top] = x;
+
+}
+
+int pop(int a[])
+{
+	int x;
+	if (top == -1)
+	{
+		printf("\n Stack empty");
+		exit (1);
+	}
+	x = a[top];
+	top--;
+	return x;
+}
+int peek (int a[])
+{
+	return(a[top]);
+}
